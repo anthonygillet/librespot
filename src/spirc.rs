@@ -205,6 +205,8 @@ impl SpircManager {
 
     pub fn send_activate(&mut self, recipient: &str) {
 
+        let mut state = protobuf_init!(protocol::spirc::State::new(), {
+        });
         state.set_status(PlayStatus::kPlayStatusPlay);
         state.set_position_ms(0);
         state.set_playing_track_index(0);
