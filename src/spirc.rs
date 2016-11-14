@@ -202,6 +202,20 @@ impl SpircManager {
             .state(state)
             .send();
     }
+
+    pub fn send_activate(&mut self, recipient: &str) {
+
+        state.set_status(PlayStatus::kPlayStatusPlay);
+        state.set_position_ms(0);
+        state.set_playing_track_index(0);
+
+        let mut internal = self.0.lock().unwrap();
+        CommandSender::new(&mut *internal, MessageType::kMessageTypeLoad)
+            .recipient(recipient)
+            .state(state)
+            .send();
+    }
+
 }
 
 impl SpircInternal {
