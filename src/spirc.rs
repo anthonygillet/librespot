@@ -210,7 +210,7 @@ impl SpircManager {
         state.set_status(PlayStatus::kPlayStatusPlay);
 
         let mut internal = self.0.lock().unwrap();
-        CommandSender::new(&mut *internal, MessageType::kMessageTypeLoad)
+        CommandSender::new(&mut *internal, MessageType::kMessageTypePlay)
             .recipient(recipient)
             .state(state)
             .send();
