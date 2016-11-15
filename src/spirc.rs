@@ -147,6 +147,13 @@ impl SpircManager {
             .send();
     }
 
+    pub fn send_stop(&self, recipient: &str) {
+        let mut internal = self.0.lock().unwrap();
+        CommandSender::new(&mut *internal, MessageType::kMessageTypeStop)
+            .recipient(recipient)
+            .send();
+    }
+
     pub fn send_prev(&self, recipient: &str) {
         let mut internal = self.0.lock().unwrap();
         CommandSender::new(&mut *internal, MessageType::kMessageTypePrev)
@@ -278,6 +285,11 @@ impl SpircInternal {
             MessageType::kMessageTypePause => {
                 if let Some(ref player) = self.player {
                     player.pause();
+                }
+            }
+            MessageType::kMessageTypeStop => {
+                if let Some(ref player) = self.player {
+                    player.stop();
                 }
             }
             MessageType::kMessageTypeNext => {
