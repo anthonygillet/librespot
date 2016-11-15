@@ -36,6 +36,7 @@ enum MessageType {
     kMessageTypeLogout = 0x22;
     kMessageTypeAction = 0x23;
     kMessageTypeRename = 0x24;
+    kMessageTypeStop = 0xaf;
 }
 
 message DeviceState {
