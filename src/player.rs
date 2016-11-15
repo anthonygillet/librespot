@@ -314,15 +314,14 @@ impl PlayerInternal {
                 }
                 Some(PlayerCommand::Stop) => {
                     self.update(|state| {
-                        state.status = PlayStatus::kPlayStatusStop;
-                        state.end_of_track = true;
-                        state.position_ms = 0;
+                        state.status = PlayStatus::kPlayStatusPause;
+                        state.update_time = util::now_ms();
+                        state.position_ms = decoder.as_mut().map(|d| vorbis_time_tell_ms(d).unwrap()).unwrap_or(0) as u32;
                         state.position_measured_at = util::now_ms();
                         true
                     });
 
                     sink.stop().unwrap();
-                    decoder = None;
                 }
                 None => (),
             }
