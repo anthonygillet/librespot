@@ -20,7 +20,7 @@ enum MessageType {
     kMessageTypeGoodbye = 0x2;
     kMessageTypeProbe = 0x3;
     kMessageTypeNotify = 0xa;
-    kMessageTypeStop = 0x13;
+    kMessageTypeStop = 0x14;
     kMessageTypeLoad = 0x14;
     kMessageTypePlay = 0x15;
     kMessageTypePause = 0x16;
