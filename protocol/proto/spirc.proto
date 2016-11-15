@@ -20,6 +20,7 @@ enum MessageType {
     kMessageTypeGoodbye = 0x2;
     kMessageTypeProbe = 0x3;
     kMessageTypeNotify = 0xa;
+    kMessageTypeStop = 0x13;
     kMessageTypeLoad = 0x14;
     kMessageTypePlay = 0x15;
     kMessageTypePause = 0x16;
@@ -36,7 +37,6 @@ enum MessageType {
     kMessageTypeLogout = 0x22;
     kMessageTypeAction = 0x23;
     kMessageTypeRename = 0x24;
-    kMessageTypeStop = 0xaf;
 }
 
 message DeviceState {
