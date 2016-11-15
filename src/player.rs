@@ -301,7 +301,7 @@ impl PlayerInternal {
 //                        state.update_time = util::now_ms();
 //                        state.position_ms = decoder.as_mut().map(|d| vorbis_time_tell_ms(d).unwrap()).unwrap_or(0) as u32;
 //                        state.position_measured_at = util::now_ms();
-                        error!("Pause detected!")
+                        error!("Pause detected!");
                         state.status = PlayStatus::kPlayStatusStop;
                         state.end_of_track = true;
                         state.position_ms = 0;
@@ -319,7 +319,7 @@ impl PlayerInternal {
                 }
                 Some(PlayerCommand::Stop) => {
                     self.update(|state| {
-                        error!("Stop detected!")
+                        error!("Stop detected!");
                         state.status = PlayStatus::kPlayStatusPause;
                         state.update_time = util::now_ms();
                         state.position_ms = decoder.as_mut().map(|d| vorbis_time_tell_ms(d).unwrap()).unwrap_or(0) as u32;
