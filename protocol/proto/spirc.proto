@@ -16,6 +16,7 @@ message Frame {
 }
 
 enum MessageType {
+    option allow_alias = true;
     kMessageTypeHello = 0x1;
     kMessageTypeGoodbye = 0x2;
     kMessageTypeProbe = 0x3;
