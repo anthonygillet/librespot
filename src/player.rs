@@ -314,9 +314,8 @@ impl PlayerInternal {
                 }
                 Some(PlayerCommand::Stop) => {
                     self.update(|state| {
-                        if state.status == PlayStatus::kPlayStatusPlay {
-                            state.status = PlayStatus::kPlayStatusPause;
-                        }
+                        state.status = PlayStatus::kPlayStatusStop;
+                        state.end_of_track = true;
                         state.position_ms = 0;
                         state.position_measured_at = util::now_ms();
                         true
